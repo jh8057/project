@@ -1,0 +1,48 @@
+body{
+    background-color:rgb(255, 218, 218);
+}
+
+a{
+    font-size: 36px;
+    text-decoration: none;
+    color: red;
+}
+
+button{
+    width: 120;
+    height: 40;
+    border: none;
+    background-color:#004fff;
+    color:white;
+    box-shadow: 0 4px 16px rgba(0,79,255,0.3);
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+}
+button:focus{
+    outline: 0;
+   /*이건 버튼 눌럿을때 나오는 기본 효과 없애주는거*/
+}
+
+button:hover{
+    background-color: burlywood;
+     /*마우스 올리면 색 변화*/
+    cursor:  pointer;
+    /*마우스 올리면 커서 모양 변화*/
+    box-shadow:  0 4px 16px rgba(255, 0, 0, 0.3);
+}
+
+
+
+.crop {
+    float: left;
+    overflow: hidden;
+    }
+.crop img {
+    margin:-330px -370px -550px -470px;
+    }
