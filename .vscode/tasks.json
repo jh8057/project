@@ -4,7 +4,25 @@
     "type": "shell",
     "echoCommand": true,
     "presentation" : { "reveal": "always" },
-    "tasks": [
+    "tasks": [          
+             {
+                "label": "python3",
+                "type": "shell",
+                "command":"python",
+                "args":["${file}"],
+                "group":{
+                    "kind":"build",
+                    "isDefault":true
+                },
+                "presentation":{
+                    "echo":true,
+                    "reveal":"always",
+                    "focus":false,
+                    "panel":"shared",
+                    "showReuseMessage":true,
+                    "clear":true
+                    }
+            },
           //C++ 컴파일
           {
             "label": "save and compile for C++",

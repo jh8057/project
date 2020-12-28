@@ -12,13 +12,13 @@ class MyApp(QMainWindow):
     def initUI(self):
         self.statusBar().showMessage('Come on!') #create status bar
         self.setWindowTitle('ZZEMAL Bring ME HERE!') #set Title /QApp, Qwidget
-        self.setWindowIcon(QIcon('rainbow.png')) #change icon /Qicon
+        self.setWindowIcon(QIcon('c:/Users/JAEHYUN/Desktop/JH_Git/pyqt5/rainbow.png')) #change icon /Qicon
         self.setGeometry(300, 600, 400, 200) #(move + resize) func
         #self.show()
 
     
     def exitUI(self):
-        exitAction = QAction(QIcon('exit.png'),'GET OUT OF HERE! MOVEMOVE!',self)
+        exitAction = QAction(QIcon('c:/Users/JAEHYUN/Desktop/JH_Git/pyqt5/exit.png'),'GET OUT OF HERE! MOVEMOVE!',self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit app')
         exitAction.triggered.connect(qApp.quit) # quit app

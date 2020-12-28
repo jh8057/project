@@ -32,7 +32,7 @@ class MyApp(QWidget):
 
         self.dial.valueChanged.connect(lcd.display)
 
-        self.setWindowTitle('Signal and Slot')
+        self.setWindowTitle('돌아가라~')
         self.setGeometry(300, 300, 300, 300)
         self.show()
     def button_clicked(self):
