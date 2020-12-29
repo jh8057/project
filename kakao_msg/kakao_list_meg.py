@@ -27,7 +27,7 @@ url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 
 # 사용자 토큰
 headers = {
-    "Authorization": "Bearer " + "rK6AuCMOzR9xMQ9aga9sv_0StnruzX-Wh2AHuwopyV8AAAF2qX65wQ"
+    "Authorization": "Bearer " + "EfDpZqJHpRwj2Zw-zbcJI23qwpeS8-lhPz0nSAorDKcAAAF2r2SMVQ"
 }
 
 template = {
