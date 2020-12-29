@@ -34,16 +34,16 @@ ___
 ## startgit
 이 폴더는 제일 처음 깃을 사용했을때 만들었던 폴더이다.  
 ~~그래서 나도 뭐가 들어있는지 모르겠다 ㅋㅋ~~
-___
 
 ## study_c
 C언어 공부를 위한 폴더이다. 
-참고 .vscode폴더 내에 vscode에서 c언어를 컴파일하고 디버깅하기 위한 세팅이 들어있다.
+.vscode폴더 내에 vscode에서 c언어를 컴파일하고 디버깅하기 위한 세팅이 들어있다.
 [dojang(도장)](https://dojang.io)을 보고 공부했다.
 |Day|Work|
 |:--:|:--|
 |20.12.27| unit1 ~ unit4 : Setting IDE & Print|
 |20.12.28| unit5 ~ unit6 : variable & Debug|
+|20.12.29| unit7 : type of int|
 ## study_py
 파이썬 공부를 위한 폴더이다. 파이썬 관련 파일들이 모여있다.
 
