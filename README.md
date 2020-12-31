@@ -27,13 +27,14 @@ ___
 (날짜를 받아와서 날짜로 저장되게 하자)
 6. 룰렛 기능이나 랜덤을 통해 특정 주제(웃긴거 or 흥미유발)을 정하고 webcrawling을 통해 사진을 가져와서 띄운다.
 
-### 동작 기능
+### 시나리오 구현
 1번 시나리오 : **pyqt5** 와 **pyinstaller** 를 이용하였다.  
 >참고: pyinstaller 는 cross-compile이 안되기에, window에서 컴파일하면 window에서만 실행이가능하다.  
 
 2번 시나리오 : pyqt5의 **QTextEdit** 기능을 이용하였다.  
 5번 시나리오 : datetime 모듈을 통해 실시간 시간 정보를 가져오고, 이를 문자로 저장하였다.
-이를 이용하여 저장 파일의 이름을 결정하였다.
+이를 이용하여 저장 파일의 이름을 결정하였다.  
+
 ```py
 import datetime
         dt = datetime.datetime.today()
@@ -43,6 +44,8 @@ import datetime
         ...
         f = open("UZ in {}.txt".format(today2[:17]),'w')
 ```
+### 동작 기능
+파일 열기, 다른이름으로 저장, 시간이름으로 저장, 폰트 사이즈 업&다운, 글씨색 변화, 앱 종료
 ### 결과 
 Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 추가해야된다.  
 <img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*

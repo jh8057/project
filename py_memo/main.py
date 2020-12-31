@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication,QPushButton, QMainWindow, QAction, qApp, QWidget, QDesktopWidget, QVBoxLayout, QTextEdit, QFileDialog,QHBoxLayout
+from PyQt5.QtWidgets import QApplication,QPushButton, QMainWindow, QAction, qApp, QWidget, QDesktopWidget, QVBoxLayout, QTextEdit, QFileDialog,QHBoxLayout,QColorDialog,QFrame
 from PyQt5.QtGui import QIcon, QFont, QColor
 
 import datetime
@@ -9,7 +9,7 @@ class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.exitUI()
+        self.menubarUI()
         
     def initUI(self):
         self.statusBar().showMessage('Come on!') #create status bar
@@ -20,20 +20,19 @@ class MyApp(QMainWindow):
         #self.show()
 
     
-    def exitUI(self):
-        exitAction = QAction(QIcon('./py_memo/exit.png'),'GET OUT OF HERE! MOVE, MOVE!',self)
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit app')
-        exitAction.triggered.connect(qApp.quit) # quit app
-
-        self.statusBar()
-
+    def menubarUI(self):
         menubar =self.menuBar()
         menubar.setNativeMenuBar(False)
-        #filemenu = menubar.addMenu('&File') #&File'의 앰퍼샌드 (ampersand, &)는 간편하게 단축키를 설정하도록 해줍니다.
+       
+        #Filemenu create
         Filemenu = menubar.addMenu("파일")
         Filemenu1 = menubar.addMenu("글씨")
         Filemenu2 = menubar.addMenu("나가기")
+
+        #Function create
+        exitAction = QAction(QIcon('./py_memo/exit.png'),'GET OUT OF HERE! MOVE, MOVE!',self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.setStatusTip('Exit app')
 
         loadfile = QAction(QIcon('./py_memo/load.png'),'두두둥장~', self)
         savefile = QAction(QIcon('./py_memo/save.jpg'),'다른이름으로 저장!', self)
@@ -53,11 +52,16 @@ class MyApp(QMainWindow):
         fontdown.setStatusTip('작게!')
 
         redcolor = QAction(QIcon('./py_memo/red.jpg'),'red!', self)
-        redcolor.setStatusTip('너의 색깔은 BLACK..이 아닌red!')
+        redcolor.setStatusTip('너의 심장의 색깔은 BLACK..이 아닌red!')
 
         Blackcolor = QAction(QIcon('./py_memo/black.jpg'),'black!', self)
-        Blackcolor.setStatusTip('너의 색깔은 BLACK!!!')
+        Blackcolor.setStatusTip('너의 심장의 색깔은 BLACK!!!')
 
+        selectcolor =QAction(QIcon('./py_memo/selectcolor.jpg'),'black!', self)
+        selectcolor.setStatusTip('너의 심장의 색깔은 ..!!!')
+
+        #triggered
+        exitAction.triggered.connect(qApp.quit) # quit app
         loadfile.triggered.connect(self.add_open)
         savefile.triggered.connect(self.add_save)
         fastsave.triggered.connect(self.fast_save)
@@ -65,7 +69,9 @@ class MyApp(QMainWindow):
         fontdown.triggered.connect(self.fontSizeDown)
         redcolor.triggered.connect(self.fontColorRed)
         Blackcolor.triggered.connect(self.fontColorBLACK)
+        selectcolor.triggered.connect(self.selectcolor_onDialog)
 
+        #Filemenu add
         Filemenu.addAction(loadfile)
         Filemenu.addAction(savefile)
         Filemenu.addAction(fastsave)
@@ -73,9 +79,11 @@ class MyApp(QMainWindow):
         Filemenu1.addAction(fontdown)
         Filemenu1.addAction(redcolor)
         Filemenu1.addAction(Blackcolor)
+        Filemenu1.addAction(selectcolor)
         Filemenu2.addAction(exitAction)
         
-        toolbar=self.addToolBar('exit')
+        #Toolbar 
+        toolbar=self.addToolBar('TOOLBAR')
         toolbar.addAction(loadfile)
         toolbar.addAction(savefile)
         toolbar.addAction(fastsave)
@@ -83,6 +91,7 @@ class MyApp(QMainWindow):
         toolbar.addAction(fontdown)
         toolbar.addAction(redcolor)
         toolbar.addAction(Blackcolor)
+        toolbar.addAction(selectcolor)
         toolbar.addAction(exitAction)
 
         self.text1= QTextEdit(self) #testedit 열기
@@ -140,11 +149,14 @@ class MyApp(QMainWindow):
     def fontSizeUp(self) :
         self.fontSize = self.fontSize + 1
         self.text1.setFontPointSize(self.fontSize)
-
     def fontSizeDown(self) :
         self.fontSize = self.fontSize - 1
         self.text1.setFontPointSize(self.fontSize)
- 
+    def selectcolor_onDialog(self):
+        col = QColorDialog.getColor()
+        if col.isValid():
+            colorvar = QColor(col.red(),col.green(),col.blue())
+            self.text1.setTextColor(colorvar)
     
 
 if __name__=='__main__':
