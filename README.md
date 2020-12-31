@@ -15,6 +15,47 @@
 <img src ="./kakao_msg/kakao_msg_fi.JPG" title="result"></img>
 ___
 
+## py_memo
+`시작동기` : 여자친구가 가볍게 웃으면서 쓰는 일기장을 하나 만들어 보고 싶었다.
+### 시나리오
+1. exe파일을 실행하면 메모장이 뜬다.
+2. 오늘의 하루 일기를 간단히 쓴다.
+3. 마지막에 오늘의 색을 정하는 버튼이 있다.
+4. 색에 따라 메시지 창이 다르게 반응!
+5. 저장은 특정 경로에 저장 되게 한다.
+저장 이름은 카운트에 따라 다르게 되게끔 한다.
+(날짜를 받아와서 날짜로 저장되게 하자)
+6. 룰렛 기능이나 랜덤을 통해 특정 주제(웃긴거 or 흥미유발)을 정하고 webcrawling을 통해 사진을 가져와서 띄운다.
+
+### 동작 기능
+1번 시나리오 : **pyqt5** 와 **pyinstaller** 를 이용하였다.  
+>참고: pyinstaller 는 cross-compile이 안되기에, window에서 컴파일하면 window에서만 실행이가능하다.  
+
+2번 시나리오 : pyqt5의 **QTextEdit** 기능을 이용하였다.  
+5번 시나리오 : datetime 모듈을 통해 실시간 시간 정보를 가져오고, 이를 문자로 저장하였다.
+이를 이용하여 저장 파일의 이름을 결정하였다.
+```py
+import datetime
+        dt = datetime.datetime.today()
+        today = str(dt)
+        today1 = today.replace('-','')
+        today2 = today1.replace(':','-')
+        ...
+        f = open("UZ in {}.txt".format(today2[:17]),'w')
+```
+### 결과 
+Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 추가해야된다.  
+<img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
+
+#### 아쉬웠던점
+>21.01.01 기록 : version 1.0
+ - pyinstaller가 cross-compile이 되지 않는점.
+ - 코드 반복이 많았던 점
+ - 다른 이름 저장을 할때 직접 .txt를 작성해줘야된다.
+ - 이모티콘 작성이 불가능한 점
+
+___
+
 ## pyqt5
 qt란 C++ 코드를 GUI로 구현하는 프로그램이다.
 pyqt로 확장되어 python을 GUI로 구현할 수 있게 되었다.
