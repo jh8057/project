@@ -132,7 +132,7 @@ import datetime
 ### 결과 
 Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 추가해야된다.  
 <img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
-<img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
+
 #### 아쉬웠던점
 >21.01.01 기록 : version 1.0
  - pyinstaller가 cross-compile이 되지 않는점.
