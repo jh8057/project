@@ -1,4 +1,5 @@
 import sys
+import os
 from PyQt5.QtWidgets import QApplication,QPushButton, QMainWindow, QAction, qApp, QWidget, QDesktopWidget, QVBoxLayout, QTextEdit, QFileDialog,QHBoxLayout,QColorDialog,QFrame
 from PyQt5.QtGui import QIcon, QFont, QColor
 
@@ -57,7 +58,7 @@ class MyApp(QMainWindow):
         Blackcolor = QAction(QIcon('./py_memo/black.jpg'),'black!', self)
         Blackcolor.setStatusTip('너의 심장의 색깔은 BLACK!!!')
 
-        selectcolor =QAction(QIcon('./py_memo/selectcolor.jpg'),'black!', self)
+        selectcolor =QAction(QIcon('./py_memo/selectcolor.jpg'),'select color!', self)
         selectcolor.setStatusTip('너의 심장의 색깔은 ..!!!')
 
         #triggered
@@ -132,10 +133,16 @@ class MyApp(QMainWindow):
         today = str(dt)
         today1 = today.replace('-','')
         today2 = today1.replace(':','-')
-  
+        
+        path = os.getcwd()
+        folder_name = "UZ MEMORY"
+        folder_path = path + '/' + folder_name + '/'
+        if not os.path.isdir(folder_path):
+            os.mkdir(folder_path)
+
         textcontent = self.text1.toPlainText()
         try:
-            f = open("UZ in {}.txt".format(today2[:17]),'w')
+            f = open(folder_path +"UZ in {}.txt".format(today2[:17]),'w')
             f.write(textcontent)
             f.close()
         except:

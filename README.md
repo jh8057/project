@@ -3,6 +3,88 @@
 
 <img src="./pyqt5/rainbowface.jpg" width="128px" height="128px" title="HI!" alt="rainbowface"></img><br/>
 
+## django
+`시작동기` : 웹 페이지를 예전부터 만들어 보고 싶었는데, **파이썬**으로 만들수 있는 **웹 프레임워크**가 있다는걸 확인하고 한번 시작하게 되었다.  
+`사이트` : [점프 투 장고](https://wikidocs.net/78004)
+
+### 기본 환경 세팅
+1. 파이썬 설치 & 가상환경 설치 : virtualenv 설치 ( 설정 안꼬이려고 가상환경 쓴다.)
+2. 가상환경실행 :  virtualenv --system-site-packages -p python3 FirstDjango
+3. 가상환경 실행파일 (*.cmd)파일 생성
+> window에서 어떤 경로에서도 실행파일(cmd)을 바로 실행할 수 있게 하려면 `환경 변수>PATH >새로 만들기` 를 하면 된다.
+4. 장고 설치 : pip install django==3.1.3
+5. 장고 프로젝트 설치 : $ django-admin startproject config(이름바꿔도됨) .
+6. 개발 서버 구동 : python manage.py runserver
+
+### 새 프로젝트 만들기
+```
+django-admin startapp polls
+```
+1. urls.py 만들기
+2. views.py 만들고 index 함수 만들기  
+
+### 데이터관리  
+**원래 DB 관리할라면 <u>쿼리(query)문</u>을 알아야된다. BUT, 필요없다. Django가 알아서 <u>ORM(object relational mapping)</u>을 통해서 연결해줌.**  
+데이터는 **db.sqlite3** 에 저장이 된다. -> SQL 설치 후 확인 가능 
+```cmd
+python manage.py migrat #이주한다..? 환경을 옮겨온다 생각하면 될듯
+
+python manage.py makemigrations #모델 만든거 새로 적용
+python manage.py migrate # 실제 적용
+```
+### 데이터 모델 이용해보기
+```cmd 
+python manage.py shell
+
+from polls.models import Question, Answer
+from django.utils import timezone
+
+Question
+q = Question(subject='polls가 무엇인가요?', content='polls에 대해서 알고 싶습니다.', create_date=timezone.now())
+q.save()
+Question.objects.all(), Question.objects.filter(id=1) # 확인 방법
+
+Answer
+a = Answer(question=q, content='네 자동으로 생성됩니다.', create_date=timezone.now())
+a.save()
+a.question
+q.answer_set.all() # 확인 방법
+```
+### 데이터 모델을 이용한 질문 목록 만들기
+- root 폴더 밑에 template 생성  
+데이터 저장 경로로 설정 : ~/config/setting.py
+```py
+    'DIRS': [BASE_DIR / 'templates'],
+```
+- url에 path 추가
+```py
+path('<int:question_id>/', views.detail),
+```
+- views.py 에 질문 관련 함수 생성
+```py
+def index(request):
+    question_list = Question.objects.order_by('-create_date') #역순 정렬
+    context = {'question_list': question_list}
+    return render(request, 'polls/question_list.html', context)
+```
+> polls/question_list.html 생성 후 내용 채우기
+```py
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    context = {'question': question}
+    return render(request, 'polls/question_show.html', context)
+```
+> polls/question_list.html 생성 후 내용 채우기
+- 네임스페이스 지정 및 URL 별칭 부여
+```py
+app_name = 'polls' #namespace
+path('<int:question_id>/', views.detail, name='detail'), #별칭 = name = detail
+```
+> polls/question_list.html 내용 네임스페이스에 맞추어 수정
+#### 결과 
+<img src ="./django/result1.jpg"  width="389px" height="168px" title="newproject"></img>
+<img src ="./django/result2.jpg" width="389px" title="newproject"></img>
+___
 ## kakao_msg
 나에게 카카오 메시지를 보내는 프로젝트이다.  
 카카오 메세지 API를 이용했다.
