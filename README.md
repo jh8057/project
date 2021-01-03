@@ -11,7 +11,7 @@
 1. 파이썬 설치 & 가상환경 설치 : virtualenv 설치 ( 설정 안꼬이려고 가상환경 쓴다.)
 2. 가상환경실행 :  virtualenv --system-site-packages -p python3 FirstDjango
 3. 가상환경 실행파일 (*.cmd)파일 생성
-> window에서 어떤 경로에서도 실행파일(cmd)을 바로 실행할 수 있게 하려면 `환경 변수>PATH >새로 만들기` 를 하면 된다.
+> Window OS 에서 어떤 경로에서도 실행파일(cmd)을 바로 실행할 수 있게 하려면 `환경 변수>PATH >새로 만들기` 를 하면 된다.
 4. 장고 설치 : pip install django==3.1.3
 5. 장고 프로젝트 설치 : $ django-admin startproject config(이름바꿔도됨) .
 6. 개발 서버 구동 : python manage.py runserver
@@ -24,7 +24,8 @@ django-admin startapp polls
 2. views.py 만들고 index 함수 만들기  
 
 ### 데이터관리  
-**원래 DB 관리할라면 <u>쿼리(query)문</u>을 알아야된다. BUT, 필요없다. Django가 알아서 <u>ORM(object relational mapping)</u>을 통해서 연결해줌.**  
+원래 DB 관리할라면 <u>쿼리(query)문</u>을 알아야된다. BUT, 필요없다.  
+Django가 알아서 **ORM(object relational mapping)** 을 통해서 연결해주기 때문이다.  
 데이터는 **db.sqlite3** 에 저장이 된다. -> SQL 설치 후 확인 가능 
 ```cmd
 python manage.py migrat #이주한다..? 환경을 옮겨온다 생각하면 될듯
@@ -74,7 +75,7 @@ def detail(request, question_id):
     context = {'question': question}
     return render(request, 'polls/question_show.html', context)
 ```
-> polls/question_list.html 생성 후 내용 채우기
+> polls/question_show.html 생성 후 내용 채우기
 - 네임스페이스 지정 및 URL 별칭 부여
 ```py
 app_name = 'polls' #namespace
@@ -82,7 +83,7 @@ path('<int:question_id>/', views.detail, name='detail'), #별칭 = name = detail
 ```
 > polls/question_list.html 내용 네임스페이스에 맞추어 수정
 #### 결과 
-<img src ="./django/result1.jpg"  width="389px" height="168px" title="newproject"></img>
+<img src ="./django/result1.jpg"  width="389px" height="168px" title="newproject"></img>  
 <img src ="./django/result2.jpg" width="389px" title="newproject"></img>
 ___
 ## kakao_msg
@@ -131,7 +132,7 @@ import datetime
 ### 결과 
 Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 추가해야된다.  
 <img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
-
+<img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
 #### 아쉬웠던점
 >21.01.01 기록 : version 1.0
  - pyinstaller가 cross-compile이 되지 않는점.
