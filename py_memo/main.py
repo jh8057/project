@@ -61,6 +61,11 @@ class MyApp(QMainWindow):
         selectcolor =QAction(QIcon('./py_memo/selectcolor.jpg'),'select color!', self)
         selectcolor.setStatusTip('너의 심장의 색깔은 ..!!!')
 
+        analysis_txt =QAction(QIcon('./py_memo/word.jpg'),'Analysis Words!', self)
+        analysis_txt.setStatusTip('삐립삐립.. 너의 단어는..!')
+        analysis_txt.setShortcut('Ctrl+w')
+
+
         #triggered
         exitAction.triggered.connect(qApp.quit) # quit app
         loadfile.triggered.connect(self.add_open)
@@ -71,6 +76,7 @@ class MyApp(QMainWindow):
         redcolor.triggered.connect(self.fontColorRed)
         Blackcolor.triggered.connect(self.fontColorBLACK)
         selectcolor.triggered.connect(self.selectcolor_onDialog)
+        analysis_txt.triggered.connect(self.analysis_word)
 
         #Filemenu add
         Filemenu.addAction(loadfile)
@@ -81,6 +87,7 @@ class MyApp(QMainWindow):
         Filemenu1.addAction(redcolor)
         Filemenu1.addAction(Blackcolor)
         Filemenu1.addAction(selectcolor)
+        Filemenu1.addAction(analysis_txt)
         Filemenu2.addAction(exitAction)
         
         #Toolbar 
@@ -93,6 +100,7 @@ class MyApp(QMainWindow):
         toolbar.addAction(redcolor)
         toolbar.addAction(Blackcolor)
         toolbar.addAction(selectcolor)
+        toolbar.addAction(analysis_txt)
         toolbar.addAction(exitAction)
 
         self.text1= QTextEdit(self) #testedit 열기
@@ -164,6 +172,31 @@ class MyApp(QMainWindow):
         if col.isValid():
             colorvar = QColor(col.red(),col.green(),col.blue())
             self.text1.setTextColor(colorvar)
+    def analysis_word(self):
+        textcontent = self.text1.toPlainText()
+        analysis_list = textcontent.split()
+        analysis_dict = {}
+        for i in analysis_list:
+            if i in analysis_dict:
+                analysis_dict[i] = analysis_dict[i]+1
+            else :
+                analysis_dict[i] = 1
+        dt = datetime.datetime.today()
+        today = str(dt)
+        today1 = today.replace('-','')
+        today2 = today1.replace(':','-')
+        
+        path = os.getcwd()
+        folder_name = "UZ Analysis"
+        folder_path = path + '/' + folder_name + '/'
+        if not os.path.isdir(folder_path):
+            os.mkdir(folder_path)
+        try:
+            f = open(folder_path +"Analysis UZ in {}.txt".format(today2[:17]),'w')
+            f.write(str(analysis_dict))
+            f.close()
+        except:
+            pass
     
 
 if __name__=='__main__':
