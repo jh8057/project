@@ -129,6 +129,7 @@ import datetime
 ```
 ### 동작 기능
 파일 열기, 다른이름으로 저장, 시간이름으로 저장, 폰트 사이즈 업&다운, 글씨색 변화, 앱 종료
+21.01.10 : 메모장 내에 단어들을 분석하는 기능을 추가했다. ( 단어별로 분류하고, 갯수를 파악하는 기능)
 ### 결과 
 Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 추가해야된다.  
 <img src ="./py_memo/result_v1.jpg" title="result_v1"></img>  *version1.0 결과 사진*
@@ -171,6 +172,7 @@ C언어 공부를 위한 폴더이다.
 |20.12.27| unit1 ~ unit4 : Setting IDE & Print|
 |20.12.28| unit5 ~ unit6 : variable & Debug|
 |20.12.29| unit7 : type of int|
+|21.01.10| unit 8 ~13 : types % input & +,-,*,/,%|
 ## study_py
 파이썬 공부를 위한 폴더이다. 파이썬 관련 파일들이 모여있다.
 
