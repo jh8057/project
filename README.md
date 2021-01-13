@@ -14,25 +14,13 @@
 4. 일정 기간을 주기로 mail을 보낸다. - gmail 사용
 
 ### 저장 파일
-Analysis_word : 딕셔너리 형태로 저장 , json으로 load해서 다시 딕셔너리로 사용하기 위해 저장하였다.
+ - Analysis_word : 딕셔너리 형태로 저장 , json으로 load해서 다시 딕셔너리로 사용하기 위해 저장하였다.
 ```py
-def load_analysis_txt():
-    path = os.getcwd()
-    folder_name = "Analysis_word"
-    folder_path = path + '/' + folder_name + '/'
-    try:
-        f = open(folder_path +"Analysis_word.txt",'r')
-        data = f.read()
-        replace_data = data.replace("'",'"')
-        analysis_dict = json.loads(replace_data)
-        f.close()
-    except:
-        pass
-    return analysis_dict
+    analysis_dict = json.loads(replace_data)
 ```
-Analysis_word_sorted : 단어의 중복횟수가 높은 순서대로 정렬된 파일. 보기 편하기 위해 따로 저장하였다.
-## 결과
-<img src ="./analysis_word/result.jpg" width="389px" title="analysis_word"></img>  
+- Analysis_word_sorted : 단어의 중복횟수가 높은 순서대로 정렬된 파일. 보기 편하기 위해 따로 저장하였다.
+### 결과
+<img src ="./analysis_word/result.jpg" title="analysis_word"></img>  
 요런식으로 { '키워드 ' : 저장 횟수} 형태로 저장 된다.
 
 ## django
@@ -72,12 +60,12 @@ python manage.py shell
 from polls.models import Question, Answer
 from django.utils import timezone
 
-Question
+[Question]
 q = Question(subject='polls가 무엇인가요?', content='polls에 대해서 알고 싶습니다.', create_date=timezone.now())
 q.save()
 Question.objects.all(), Question.objects.filter(id=1) # 확인 방법
 
-Answer
+[Answer]
 a = Answer(question=q, content='네 자동으로 생성됩니다.', create_date=timezone.now())
 a.save()
 a.question
