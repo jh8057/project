@@ -4,6 +4,23 @@ from PyQt5.QtWidgets import QApplication,QPushButton, QMainWindow, QAction, qApp
 from PyQt5.QtGui import QIcon, QFont, QColor
 
 import datetime
+import json
+
+path = os.getcwd()
+
+def load_analysis_txt():
+    folder_name = "Analysis_UZ"
+    folder_path = path + '/' + folder_name + '/'
+    try:
+        f = open(folder_path +"Analysis UZ.txt",'r')
+        data = f.read()
+        f.close()
+    except:
+        pass
+    type(data)
+    analysis_dict = json.loads(data)
+    type(analysis_dict)
+    print(analysis_dict)
 
 class MyApp(QMainWindow):
 
@@ -142,7 +159,6 @@ class MyApp(QMainWindow):
         today1 = today.replace('-','')
         today2 = today1.replace(':','-')
         
-        path = os.getcwd()
         folder_name = "UZ MEMORY"
         folder_path = path + '/' + folder_name + '/'
         if not os.path.isdir(folder_path):
@@ -173,33 +189,48 @@ class MyApp(QMainWindow):
             colorvar = QColor(col.red(),col.green(),col.blue())
             self.text1.setTextColor(colorvar)
     def analysis_word(self):
+        try:
+            f = open(path +'/'+"Analysis_UZ"+'/'+"Analysis UZ.txt",'r')
+            data = f.read()
+            print(data)
+            f.close()
+        except:
+            pass
         textcontent = self.text1.toPlainText()
         analysis_list = textcontent.split()
-        analysis_dict = {}
+        global analysis_dict
         for i in analysis_list:
             if i in analysis_dict:
                 analysis_dict[i] = analysis_dict[i]+1
             else :
                 analysis_dict[i] = 1
-        dt = datetime.datetime.today()
-        today = str(dt)
-        today1 = today.replace('-','')
-        today2 = today1.replace(':','-')
-        
-        path = os.getcwd()
-        folder_name = "UZ Analysis"
+        folder_name = "Analysis_UZ"
         folder_path = path + '/' + folder_name + '/'
+
+        answer = sorted(analysis_dict.items(),reverse =True, key = lambda x : x[1])
+        #str_answer = "".join(map(str, answer))
+        
         if not os.path.isdir(folder_path):
             os.mkdir(folder_path)
         try:
-            f = open(folder_path +"Analysis UZ in {}.txt".format(today2[:17]),'w')
-            f.write(str(analysis_dict))
+            f = open(folder_path +"Analysis UZ.txt",'w')
+            f.write(str(answer))
             f.close()
         except:
             pass
-    
+
+
+
+
 
 if __name__=='__main__':
+    analysis_dict = {}
+    #load_analysis_txt()
     app=QApplication(sys.argv)
     ex=MyApp()
     sys.exit(app.exec_())
+
+
+
+
+    

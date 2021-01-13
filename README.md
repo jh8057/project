@@ -3,6 +3,38 @@
 
 <img src="./pyqt5/rainbowface.jpg" width="128px" height="128px" title="HI!" alt="rainbowface"></img><br/>
 
+
+## analysis_word
+`시작동기` : 좋은 아이디어라 생각하여 회사에서 ppt발표를 해버렷고, 구체화를 하기 시작했다.
+
+### 기능
+1. 단어를 분류한다.
+2. 단어의 중복 숫자에 따른 정렬(sort)를 한다.
+3. 단어의 중복 횟수에 따른 action이 생긴다.
+4. 일정 기간을 주기로 mail을 보낸다. - gmail 사용
+
+### 저장 파일
+Analysis_word : 딕셔너리 형태로 저장 , json으로 load해서 다시 딕셔너리로 사용하기 위해 저장하였다.
+```py
+def load_analysis_txt():
+    path = os.getcwd()
+    folder_name = "Analysis_word"
+    folder_path = path + '/' + folder_name + '/'
+    try:
+        f = open(folder_path +"Analysis_word.txt",'r')
+        data = f.read()
+        replace_data = data.replace("'",'"')
+        analysis_dict = json.loads(replace_data)
+        f.close()
+    except:
+        pass
+    return analysis_dict
+```
+Analysis_word_sorted : 단어의 중복횟수가 높은 순서대로 정렬된 파일. 보기 편하기 위해 따로 저장하였다.
+## 결과
+<img src ="./analysis_word/result.jpg" width="389px" title="analysis_word"></img>  
+요런식으로 { '키워드 ' : 저장 횟수} 형태로 저장 된다.
+
 ## django
 `시작동기` : 웹 페이지를 예전부터 만들어 보고 싶었는데, **파이썬**으로 만들수 있는 **웹 프레임워크**가 있다는걸 확인하고 한번 시작하게 되었다.  
 `사이트` : [점프 투 장고](https://wikidocs.net/78004)
@@ -86,6 +118,7 @@ path('<int:question_id>/', views.detail, name='detail'), #별칭 = name = detail
 <img src ="./django/result1.jpg"  width="389px" height="168px" title="newproject"></img>  
 <img src ="./django/result2.jpg" width="389px" title="newproject"></img>
 ___
+
 ## kakao_msg
 나에게 카카오 메시지를 보내는 프로젝트이다.  
 카카오 메세지 API를 이용했다.
