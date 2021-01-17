@@ -1,5 +1,5 @@
 # JH_project
-김재현의 프로젝트들을 모아둔 Git 저장소이다.
+김재현의 프로젝트들을 모아둔 Git 저장소이다.😂
 
 <img src="./pyqt5/rainbowface.jpg" width="128px" height="128px" title="HI!" alt="rainbowface"></img><br/>
 
