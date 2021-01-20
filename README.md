@@ -207,7 +207,7 @@ web크롤링 파일이다.
 naver에서 타이틀을 가져오는것을 해보았다.
 
 ## webpage
-**21.1.19** 본격적인 web 공부 시작!  
+**(21.1.19)** 본격적인 web 공부 시작!  
 `시작동기` : 갑작스러운 진로고민으로 인해 채용 공고를 보는 도중 웹 페이지를 만들어 보고, 웹에 대한 이해는 필요하다 생각해서 시작하였다.😉(그 과정에서 이모지를 알게 되었다는 사실 ..🤦‍♂️)
 사실 이전에 이미 한번 웹 페이지를 만들어보고 이미지에 css를 이용해서 스타일까지 입혀줘봤었다.
 그래도 이번엔 제대로 개념부터 시작해서 차근차근 해보고 싶어 이렇게 장황하게 글을 써보았다.  
@@ -233,7 +233,7 @@ python이나 c는 코딩도장을 이용했는데, 웹은 코딩도장이 없어
 -생활코딩 글 중 : 🌈WOW✨
 ```
 
-(21.1.9)
+(21.1.19)
 [개념! 자바 vs 자바스크립 의 차이](http://blog.wishket.com/%EC%9E%90%EB%B0%94-vs-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%B0%A8%EC%9D%B4%EC%A0%90-%ED%95%B5%EC%8B%AC%EA%B8%B0%EB%8A%A5/)
 
 ### TIL D+2
@@ -243,7 +243,7 @@ ctrl + shift + p (팔레트 단축키) / ctrl + shift + v (마크다운)
 ```
 - 오히려 개념적으로 접근해서 좋다. HTML의 '<h>'로 이루어진 제목과 그냥 size와 시각적 효과로 동일하게 만든 제목의 차이점을 통해 기본의 중요성 및 효율적인 코딩에 대한 고민을 하게 하는 것이 좋은 가르침인 것 같다.✔
 - 속성(attribute)의 두두~등장! => 태그만의로 정보가 부족할 때 사용!
-- [public domain image website](https://filmora.wondershare.com/video-editing-tips/best-websites-download-free-public-domain-images.html?gclid=CjwKCAiAo5qABhBdEiwAOtGmbrFggwA0J-xk9Rjr71vR77r1jrLEb0cVS8lizUhtiM7eyNB2cyTLmRoCCfQQAvD_BwE)
+- 무료 웹 이미지 사이트 : [public domain image website](https://filmora.wondershare.com/video-editing-tips/best-websites-download-free-public-domain-images.html?gclid=CjwKCAiAo5qABhBdEiwAOtGmbrFggwA0J-xk9Rjr71vR77r1jrLEb0cVS8lizUhtiM7eyNB2cyTLmRoCCfQQAvD_BwE)
 - `img src='address'` 를 통해 이미지를 웹 페이지에 부를 수 있다.  또한, width ="80%" 처럼 퍼센트으로도 너비, 높이 조절이 가능하다.(픽셀로만 가능한줄 알았따..😶🙄)
 - 부모 - 자식 관계의 태그가 존재한다 라..🖋
 - 보통은 부모 - 자식 관계가 정해져 있지 않지만, 고정되어 있는 놈들이 있다. 👈요걸 공부해보자
@@ -259,12 +259,13 @@ ctrl + shift + p (팔레트 단축키) / ctrl + shift + v (마크다운)
 - 정말.. 설명이 기똥차다.. 본문을 설명하는 부분을 head에 본문을 body로 구분을 했을 뿐이다. 마지막으로 이 두 태그를 감싸는게 html 태그다..!😎 마지막으로 이 파일이 html으로 작성됐다는걸 알려주는 !doctype html 을 제일 위에 작성해주면 끝!😎😎
 - anchor = 닻, href = 'h'yperText 'ref'ence
 - a 는 문서 링크(닻을 내려라!) , href = 주소 , target = 어떻게 링크를 열건지, title = 마우스 커서를 올렸을때 설명
-'''
+```
 CSS에서: 항상 "url"
 HTML에서
 link인 경우: "href"
 link가 아닌 경우(이미지, 비디오 등등): "src"
 -검색하다 발견😮
-'''
+```
+
 - [하이퍼텍스트란?](https://terms.naver.com/entry.nhn?docId=512562&cid=42126&categoryId=42126)
 
