@@ -269,3 +269,9 @@ link가 아닌 경우(이미지, 비디오 등등): "src"
 
 - [하이퍼텍스트란?](https://terms.naver.com/entry.nhn?docId=512562&cid=42126&categoryId=42126)
 
+### TIL D+4
+- github page를 통해 , 즉 github라는 웹호스팅 서비스를 이용해서 나만의 웹을 런칭했다!😁
+- 당연하지만, public으로 설정해야되서 그냥 새로 저장소를 하나 더 만들었다.
+- [나의 첫 홈페이지!](https://jh8057.github.io/zzemal_web/.) 한번 방문해보자!😎
+- HTML 처럼 웹 브라우저에서 알아서 해석하기 때문에 서버 쪽에서 딱히 할일 이 없는 특성을 가진 것을 **정적(static)** 이다 말한다.
+- **동적(dynamic)**인 것은 유료 서비스를 이용해야 될 경우가 많고, python, ruby, java 등으로 구현 가능하다.
