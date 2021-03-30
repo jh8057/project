@@ -1,9 +1,0 @@
-
-node.js 설치
-
--cmd
-node -v 버전확인
-npm install ws
-
-접속 방법
-cmd 에서 node server(파일명).js 치면 됨
