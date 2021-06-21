@@ -23,6 +23,51 @@
 <img src ="./analysis_word/result.jpg" title="analysis_word"></img>  
 요런식으로 { '키워드 ' : 저장 횟수} 형태로 저장 된다.
 
+
+
+
+
+___
+
+
+
+
+## automessage & trade
+
+### 시작 동기
+**'대 비트코인'** 시대에서 자동거래 시스템을 만들어 보고 싶었다.
+
+### 참조 
+`조코딩` 유튜브를 보고 만들었다.
+
+### 사용 방법
+- upbit에서 API를 사용하기 위한 Token 받기
+- Slack에서 자동화 메세지를 위한 Token 받기
+- 계좌에서 특정 IP에서만 API를 사용할 수 있도록 설정
+- AWS > EC2 > 내가 돌리고자 하는 .py 파일 실행
+### autotrade.py
+- 최종적으로 돌렸던 프로그램이다.
+- 여러 코인들을 확인하면서 조건에 맞는 코인을 일정 비율로 구매하도록 하였다.
+
+### backtest.py
+- 실제 식이 유효한가 과거 자료를 통해 결과를 확인하는 파이썬 파일이다.
+
+### findbestk.py
+- 식에 사용되는 적절한 K 값을 찾는 파이썬 파일이다.
+
+### slackmessege.py
+- 매도, 매수 를 하면 slack을 통해 자동적으로 알람을 보내도록 설정하기 위해서 테스트용으로 메세지가 잘 보내지는지 확인한 파이썬 파일이다.
+
+### upbittest.py
+- 간단하게 upbit API를 이용해서 테스트 할 수 있는 파이썬 파일이다.
+
+
+___
+
+
+
+
+
 ## django
 `시작동기` : 웹 페이지를 예전부터 만들어 보고 싶었는데, **파이썬**으로 만들수 있는 **웹 프레임워크**가 있다는걸 확인하고 한번 시작하게 되었다.  
 `사이트` : [점프 투 장고](https://wikidocs.net/78004)
@@ -105,6 +150,8 @@ path('<int:question_id>/', views.detail, name='detail'), #별칭 = name = detail
 #### 결과 
 <img src ="./django/result1.jpg"  width="389px" height="168px" title="newproject"></img>  
 <img src ="./django/result2.jpg" width="389px" title="newproject"></img>
+
+
 ___
 
 ## kakao_msg
@@ -162,7 +209,13 @@ Version1.0 : 시나리오의 1,2,5번 구현 완료. 색에 관한 이벤트를 
  - 다른 이름 저장을 할때 직접 .txt를 작성해줘야된다.
  - 이모티콘 작성이 불가능한 점
 
+
+
+
 ___
+
+
+
 
 ## pyqt5
 qt란 C++ 코드를 GUI로 구현하는 프로그램이다.
@@ -180,6 +233,10 @@ pyinstaller -w -F "python파일"
 <img src ="./pyqt5/lcd.JPG" title="result2" width="200px" height="200px"></img>  
 ___  
 
+
+
+
+
 ## startgit
 이 폴더는 제일 처음 깃을 사용했을때 만들었던 폴더이다.  
 ~~그래서 나도 뭐가 들어있는지 모르겠다 ㅋㅋ~~
@@ -194,17 +251,36 @@ C언어 공부를 위한 폴더이다.
 |20.12.28| unit5 ~ unit6 : variable & Debug|
 |20.12.29| unit7 : type of int|
 |21.01.10| unit 8 ~13 : types % input & +,-,*,/,%|
+
+
+
+
 ## study_py
 파이썬 공부를 위한 폴더이다. 파이썬 관련 파일들이 모여있다.
 
+
+
+
 ## SWTEST
 SW test 기출문제들이다. 
+
+
+
+
 ## vscode_cmake
 기본적인 cmake형식이다.
+
+
+
+
 
 ## webcrawling
 web크롤링 파일이다. 
 naver에서 타이틀을 가져오는것을 해보았다.
+
+
+
+
 
 ## webpage
 **(21.1.19)** 본격적인 web 공부 시작!  
